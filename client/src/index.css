@@ -1,0 +1,11 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: Basic body styling */
+body {
+  font-family: 'Inter', sans-serif; /* Or any nice sans-serif font */
+  background-color: #f3f4f6; /* Light gray background */
+  color: #333;
+}

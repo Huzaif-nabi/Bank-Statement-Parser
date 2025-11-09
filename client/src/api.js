@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // The VITE_API_BASE_URL should be defined in a .env file in the client directory (e.g., VITE_API_BASE_URL=http://localhost:5000)
 // If not defined, it defaults to http://localhost:5000
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'; 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'; 
 
 const api = axios.create({
     baseURL: API_BASE_URL,

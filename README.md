@@ -47,5 +47,5 @@ All demo PDFs are available in `/public/demo-pdfs/`.
 
 1. **Clone the repository:**
    ```bash
-   git clone <your-repo-url>
-   cd <your-repo-folder>
+   git clone https://github.com/Huzaif-nabi/Bank-Statement-Parser.git
+

@@ -1,10 +1,7 @@
 // src/pages/UploadPage.jsx
 import React, { useState, useRef } from 'react';
 import { uploadStatement } from '../api'; // Your API utility
-import { FaUpload, FaSpinner, FaFilePdf, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa'; // For icons
-// Import a custom image for the illustration, or use a placeholder
-import uploadIllustration from '../assets/upload-illustration.svg'; // You'll need to create/find this
-
+import { FaUpload, FaSpinner, FaFilePdf, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
 
 const UploadPage = () => {
   const [file, setFile] = useState(null);
@@ -66,7 +63,6 @@ const UploadPage = () => {
     }
   };
 
-  // Helper to render transaction table
   const renderTransactions = (transactions) => {
     if (!transactions || transactions.length === 0) {
       return <p className="text-gray-600">No transactions found.</p>;
@@ -108,13 +104,7 @@ const UploadPage = () => {
           </p>
         </header>
 
-        <div className="grid md:grid-cols-2 gap-10 items-center mb-12">
-          {/* Illustration Section */}
-          <div className="hidden md:flex justify-center">
-            {/* If you have a custom illustration: */}
-            {/* <img src={uploadIllustration} alt="Upload process" className="max-w-md" /> */}
-            <img src="https://via.placeholder.com/400x400/e0f2fe/039be5?text=Upload+Illustration" alt="Upload illustration" className="max-w-md rounded-lg shadow-xl" />
-          </div>
+        <div className="flex justify-center items-center min-h-[60vh] mb-12">
 
           {/* Upload Form Section */}
           <div className="bg-white rounded-xl shadow-2xl p-8 border border-blue-100">
@@ -178,6 +168,52 @@ const UploadPage = () => {
           </div>
         </div>
 
+       {/* Demo PDFs Section */}
+<div className="mt-12">
+  <h3 className="text-2xl font-bold text-blue-800 mb-6 text-center">
+    Download Demo Statements
+  </h3>
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
+    <a
+      href="/demo-pdfs/ICICI.pdf"
+      download
+      className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-gray-400 transition"
+    >
+      ICICI Bank
+    </a>
+    <a
+      href="/demo-pdfs/HDFC.pdf"
+      download
+      className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-gray-400 transition"
+    >
+      HDFC Bank
+    </a>
+    <a
+      href="/demo-pdfs/J&K.pdf"
+      download
+      className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-gray-400 transition"
+    >
+      J&K Bank
+    </a>
+    <a
+      href="/demo-pdfs/SBI.pdf"
+      download
+      className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-gray-400 transition"
+    >
+      SBI
+    </a>
+    <a
+      href="/demo-pdfs/PNB.pdf"
+      download
+      className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-gray-400 transition"
+    >
+      PNB
+    </a>
+  </div>
+</div>
+
+
+
         {/* Results Display */}
         {result && (
           <div className="bg-white rounded-xl shadow-2xl p-8 border border-green-100 mt-12 animate-fade-in">
@@ -185,7 +221,8 @@ const UploadPage = () => {
               <FaCheckCircle className="mr-3" /> Parsing Complete!
             </h2>
             <p className="text-lg text-gray-700 mb-6 text-center">
-              Statement from: <span className="font-semibold text-blue-700">{result.bankName || 'Unknown Bank'}</span>
+              Statement from:{' '}
+              <span className="font-semibold text-blue-700">{result.bankName || 'Unknown Bank'}</span>
             </p>
 
             <h3 className="text-2xl font-bold text-gray-800 mb-4">Summary</h3>
